@@ -1,0 +1,25 @@
+default:
+  ENVVAR_PREFIX_FOR_DYNACONF: JATI
+
+  DEBUG: false
+  DB_HOST: localhost
+  DB_PORT: 5432
+  DB_USER: postgres
+  DB_PASSWORD: postgres
+  DB_DATABASE: wallet
+  DB_ECHO: false
+  DB_POOL_MIN_SIZE: 1
+  DB_POOL_MAX_SIZE: 16
+  DB_SSL: false
+  SENTRY_DSN_URL:
+  TRANSACTION_MIN_AMOUNT: 0.05
+  TRANSACTION_MAX_AMOUNT: 10000
+
+development:
+  DEBUG: true
+
+testing:
+
+staging:
+
+production:

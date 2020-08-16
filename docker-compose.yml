@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  wallet:
+    build: .
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+    environment:
+      JATI_DB_HOST: wallet_db
+    command: sh -c "/env/bin/alembic upgrade head && /env/bin/python main.py"
+
+  wallet_db:
+    image: postgres
+    restart: unless-stopped
+    ports:
+    - 60001:5432
+    volumes:
+      - wallet_db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: wallet
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+volumes:
+  wallet_db-data:
